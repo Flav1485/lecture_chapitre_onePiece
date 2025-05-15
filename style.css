@@ -1,0 +1,20 @@
+.moyenne{
+    font-size: 16px;
+    color: black;
+}
+
+#logo{
+    margin-bottom: 5px;
+    width: 350px;
+}
+
+#saga-image{
+    margin-top: 10px;
+    height: 400px;
+    width: auto;
+}
+
+.chapter-read, .moyenne, .saga_arc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
