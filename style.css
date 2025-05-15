@@ -1,3 +1,8 @@
+body{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .moyenne{
     font-size: 16px;
     color: black;
@@ -10,8 +15,11 @@
 
 #saga-image{
     margin-top: 10px;
-    height: 400px;
+    max-height: 10vh; /* hauteur max = 40% de la hauteur de la fenêtre */
     width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chapter-read, .moyenne, .saga_arc {
