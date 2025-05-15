@@ -9,17 +9,17 @@ function handleValidation() {
     const data = {
         sagas: [
             // Nom des sagas, début et fin des chapitres, image associée
-            { name: "East Blue", start: 1, end: 100, image: "images/east_blue.jpg" },
-            { name: "Alabasta", start: 101, end: 217, image: "images/alabasta.jpg" },
-            { name: "Skypiea", start: 218, end: 302, image: "images/skypiea.jpg" },
-            { name: "Water 7", start: 303, end: 441, image: "images/water_seven.webp" },
-            { name: "Thriller Bark", start: 442, end: 489, image: "images/thriller_bark.webp" },
-            { name: "Guerre au Sommet", start: 490, end: 597, image: "images/guerre_sommet.webp" },
-            { name: "Île des Hommes-Poissons", start: 598, end: 653, image: "images/ile_2_hommes_poissons.webp" },
-            { name: "Dressrosa", start: 654, end: 801, image: "images/dressrosa.jpeg" },
-            { name: "Whole Cake Island", start: 802, end: 908, image: "images/whole_cake_island.webp" },
-            { name: "Pays des Wa", start: 909, end: 1057, image: "images/pays_2_wa.webp" },
-            { name: "Finale", start: 1058, end: 1148, image: "images/finale.jpg" } 
+            { name: "East Blue", start: 1, end: 100, image: "images/images_saga/east_blue.jpg" },
+            { name: "Alabasta", start: 101, end: 217, image: "images/images_saga/alabasta.jpg" },
+            { name: "Skypiea", start: 218, end: 302, image: "images/images_saga/skypiea.jpg" },
+            { name: "Water 7", start: 303, end: 441, image: "images/images_saga/water_seven.webp" },
+            { name: "Thriller Bark", start: 442, end: 489, image: "images/images_saga/thriller_bark.webp" },
+            { name: "Guerre au Sommet", start: 490, end: 597, image: "images/images_saga/guerre_sommet.webp" },
+            { name: "Île des Hommes-Poissons", start: 598, end: 653, image: "images/images_saga/ile_2_hommes_poissons.webp" },
+            { name: "Dressrosa", start: 654, end: 801, image: "images/images_saga/dressrosa.jpeg" },
+            { name: "Whole Cake Island", start: 802, end: 908, image: "images/images_saga/whole_cake_island.webp" },
+            { name: "Pays des Wa", start: 909, end: 1057, image: "images/images_saga/pays_2_wa.webp" },
+            { name: "Finale", start: 1058, end: 1148, image: "images/images_saga/finale.jpg" } 
         ],
         arcs: [
             // Nom des arcs, début et fin des chapitres
