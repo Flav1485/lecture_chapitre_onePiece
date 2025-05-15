@@ -104,7 +104,7 @@ function handleValidation() {
         } else if (chaptersRead === currentArc.end && chaptersRead < currentSaga.end) {
             resultDiv2.innerText = `Vous avez terminé l'arc : ${arcName}, de la saga : ${sagaName}. Vous êtes maintenant dans l'arc : ${nextArcName}.`;
         } else if (chaptersRead === currentArc.end && chaptersRead === currentSaga.end) {
-            resultDiv2.innerText = `Vous avez terminé l'arc : ${arcName}, de la saga : ${sagaName}. Vous êtes maintenant dans l'arc : ${nextArcName}, de la saga : ${nextSagaName}.`;
+            resultDiv2.innerText = `Vous avez terminé l'arc : ${arcName} et la saga : ${sagaName}. Vous êtes maintenant dans l'arc : ${nextArcName}, de la saga : ${nextSagaName}.`;
         }
     } else {
         document.querySelector('.moyenne').innerText = `Veuillez entrer un nombre valide entre 0 et ${totalChapters}.`;
