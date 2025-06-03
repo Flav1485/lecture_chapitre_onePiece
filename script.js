@@ -119,27 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
         handleValidation(); // Appel de la fonction pour afficher les résultats
     }
 
-    // Restaurer le nombre total de chapitres au chargement de la page
     const savedTotalChapters = localStorage.getItem('totalChapters');
     let totalChapters = savedTotalChapters ? parseInt(savedTotalChapters, 10) : 1150; // Valeur par défaut
-
-    const chaptersReadInput = document.getElementById('chapters-read');
-    const chaptersRead = parseInt(chaptersReadInput.value, 10);
-
-    // Enregistrement du nombre de chapitres lus dans le localStorage
-    localStorage.setItem('chaptersRead', chaptersRead);
-
-    // Ajouter un bouton pour mettre à jour le nombre total de chapitres
-    document.getElementById('update-total-chapters').addEventListener('click', function() {
-        const newTotal = parseInt(document.getElementById('total-chapters-input').value, 10);
-        if (!isNaN(newTotal) && newTotal > 0) {
-            totalChapters = newTotal;
-            localStorage.setItem('totalChapters', totalChapters);
-            console.log(`Le nombre total de chapitres a été mis à jour : ${totalChapters}`);
-        } else {
-            console.error('Veuillez entrer un nombre valide.');
-        }
-    });
+    console.log(`Nombre total de chapitres récupéré : ${totalChapters}`);
 });
 
 // Événements pour le bouton et la touche "Entrée"
