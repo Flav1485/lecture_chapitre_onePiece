@@ -1,14 +1,12 @@
 function handleValidation() {
-    let totalChapters = 1150; // Nombre total de chapitres
     const chaptersReadInput = document.getElementById('chapters-read');
     const chaptersRead = parseInt(chaptersReadInput.value, 10);
 
     // Enregistrement du nombre de chapitres lus dans le localStorage
-    localStorage.setItem('chaptersRead', chaptersRead); 
+    localStorage.setItem('chaptersRead', chaptersRead);
 
     const data = {
         sagas: [
-            // Nom des sagas, début et fin des chapitres, image associée
             { name: "East Blue", start: 1, end: 100, image: "images/images_saga/east_blue.jpg" },
             { name: "Alabasta", start: 101, end: 217, image: "images/images_saga/alabasta.jpg" },
             { name: "Skypiea", start: 218, end: 302, image: "images/images_saga/skypiea.jpg" },
@@ -19,10 +17,9 @@ function handleValidation() {
             { name: "Dressrosa", start: 654, end: 801, image: "images/images_saga/dressrosa.jpeg" },
             { name: "Whole Cake Island", start: 802, end: 908, image: "images/images_saga/whole_cake_island.webp" },
             { name: "Pays des Wa", start: 909, end: 1057, image: "images/images_saga/pays_2_wa.webp" },
-            { name: "Finale", start: 1058, end: 1148, image: "images/images_saga/finale.jpg" } 
+            { name: "Finale", start: 1058, end: 1148, image: "images/images_saga/finale.jpg" }
         ],
         arcs: [
-            // Nom des arcs, début et fin des chapitres
             { name: "Romance Dawn", start: 1, end: 7 },
             { name: "Ville d'Orange", start: 8, end: 21 },
             { name: "Village Sirop", start: 22, end: 41 },
@@ -36,37 +33,36 @@ function handleValidation() {
             { name: "Alabasta", start: 155, end: 217 },
             { name: "Jaya", start: 218, end: 236 },
             { name: "Skypiea", start: 237, end: 302 },
-            { name: "Long Ring Long Land", start: 303, end: 321},
+            { name: "Long Ring Long Land", start: 303, end: 321 },
             { name: "Water Seven", start: 322, end: 374 },
             { name: "Enies Lobby", start: 375, end: 430 },
-            { name: "Post-Enies Lobby", start: 431, end: 441},
-            { name: "Thriller Bark", start: 442, end: 489},
+            { name: "Post-Enies Lobby", start: 431, end: 441 },
+            { name: "Thriller Bark", start: 442, end: 489 },
             { name: "Sabaody", start: 490, end: 513 },
             { name: "Amazon Lily", start: 514, end: 524 },
             { name: "Impel Down", start: 525, end: 549 },
             { name: "Marine Ford", start: 550, end: 580 },
-            { name: "Post-Marine Ford", start: 581, end: 597},
-            { name: "Retour à Sabaody", start: 598, end: 602},
-            { name: "Île des Hommes-Poissons", start: 603, end: 653},
-            { name: "Punk Hazard", start: 654, end: 699},
-            { name: "Dressrosa", start: 700, end: 801},
-            { name: "Zo", start: 802, end: 824},
-            { name: "Tougato", start: 825, end: 902},
-            { name: "Rêverie", start: 903, end: 908},
-            { name: "Pays des Wa", start: 909, end: 1057},
-            { name: "Île d'Egg Head", start: 1058, end: 1125},
-            { name: "Erbaf", start: 1126, end: 1148}
+            { name: "Post-Marine Ford", start: 581, end: 597 },
+            { name: "Retour à Sabaody", start: 598, end: 602 },
+            { name: "Île des Hommes-Poissons", start: 603, end: 653 },
+            { name: "Punk Hazard", start: 654, end: 699 },
+            { name: "Dressrosa", start: 700, end: 801 },
+            { name: "Zo", start: 802, end: 824 },
+            { name: "Tougato", start: 825, end: 902 },
+            { name: "Rêverie", start: 903, end: 908 },
+            { name: "Pays des Wa", start: 909, end: 1057 },
+            { name: "Île d'Egg Head", start: 1058, end: 1125 },
+            { name: "Erbaf", start: 1126, end: 1148 }
         ]
     };
 
-    // récuppération des sagas et arcs
     const sagas = data.sagas;
     const arcs = data.arcs;
 
     // Vérification de la validité de l'entrée
-    if (!isNaN(chaptersRead) && chaptersRead >= 0 && chaptersRead <= totalChapters) {
+    if (!isNaN(chaptersRead) && chaptersRead >= 0 && chaptersRead <= window.totalChapters) {
         // Calcul du pourcentage de chapitres lus
-        const percentage = ((chaptersRead / totalChapters) * 100).toFixed(2);
+        const percentage = ((chaptersRead / window.totalChapters) * 100).toFixed(2);
     
         // Récupération de la saga en cours
         const currentSagaIndex = sagas.findIndex(saga => chaptersRead >= saga.start && chaptersRead <= saga.end);
@@ -94,7 +90,7 @@ function handleValidation() {
         const sagaImageElement = document.getElementById('saga-image');
 
         // Affichage des résultats
-        resultDiv.innerText = `Vous avez lu ${chaptersRead} chapitres sur ${totalChapters}.`;
+        resultDiv.innerText = `Vous avez lu ${chaptersRead} chapitres sur ${window.totalChapters}.`;
         resultDiv1.innerText = `Vous avez lu ${percentage}% des chapitres.`;
         sagaImageElement.src = sagaImage;
         sagaImageElement.alt = `Image de la saga : ${sagaName}`
@@ -107,7 +103,7 @@ function handleValidation() {
             resultDiv2.innerText = `Vous avez terminé l'arc : ${arcName} et la saga : ${sagaName}. Vous êtes maintenant dans l'arc : ${nextArcName}, de la saga : ${nextSagaName}.`;
         }
     } else {
-        document.querySelector('.moyenne').innerText = `Veuillez entrer un nombre valide entre 0 et ${totalChapters}.`;
+        document.querySelector('.moyenne').innerText = `Veuillez entrer un nombre valide entre 0 et ${window.totalChapters}.`;
     }
 }
 
@@ -120,8 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const savedTotalChapters = localStorage.getItem('totalChapters');
-    let totalChapters = savedTotalChapters ? parseInt(savedTotalChapters, 10) : 1150; // Valeur par défaut
-    console.log(`Nombre total de chapitres récupéré : ${totalChapters}`);
+    window.totalChapters = savedTotalChapters ? parseInt(savedTotalChapters, 10) : 1150; // Valeur par défaut
+    console.log(`Nombre total de chapitres récupéré : ${window.totalChapters}`);
 });
 
 // Événements pour le bouton et la touche "Entrée"
