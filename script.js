@@ -1,5 +1,5 @@
 function handleValidation() {
-    const totalChapters = 1149; // Nombre total de chapitres
+    const totalChapters = 1150; // Nombre total de chapitres
     const chaptersReadInput = document.getElementById('chapters-read');
     const chaptersRead = parseInt(chaptersReadInput.value, 10);
 
