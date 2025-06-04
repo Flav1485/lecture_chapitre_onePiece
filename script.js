@@ -1,5 +1,20 @@
 function handleValidation() {
-    const totalChapters = 1150; // Nombre total de chapitres
+    // Récupération du nombre total de chapitres depuis le localStorage ou valeur par défaut
+    let totalChapters = parseInt(localStorage.getItem('totalChapters')) || 1150; // Nombre total de chapitres
+    
+    // Demander à l'utilisateur de saisir le nombre total de chapitres
+    const hasChanged = confirm("Le nombre total de chapitres a-t-il changé ? Oui/Non");
+    if (hasChanged) {
+        const newTotal = parseInt(prompt("Veuillez entrer le nouveau nombre total de chapitres :", totalChapters), 10);
+        if (newTotal !== null && !isNaN(newTotal) && newTotal > 0) {
+            totalChapters = newTotal;
+            localStorage.setItem('totalChapters', totalChapters); // Enregistrement du nouveau nombre total de chapitres
+        } else {
+            alert("Veuillez entrer un nombre valide.");
+        }
+    }
+
+    // Récupération du nombre de chapitres lus
     const chaptersReadInput = document.getElementById('chapters-read');
     const chaptersRead = parseInt(chaptersReadInput.value, 10);
 
@@ -19,7 +34,7 @@ function handleValidation() {
             { name: "Dressrosa", start: 654, end: 801, image: "images/images_saga/dressrosa.jpeg" },
             { name: "Whole Cake Island", start: 802, end: 908, image: "images/images_saga/whole_cake_island.webp" },
             { name: "Pays des Wa", start: 909, end: 1057, image: "images/images_saga/pays_2_wa.webp" },
-            { name: "Finale", start: 1058, end: 1148, image: "images/images_saga/finale.jpg" } 
+            { name: "Finale", start: 1058, end: totalChapters, image: "images/images_saga/finale.jpg" } 
         ],
         arcs: [
             // Nom des arcs, début et fin des chapitres
@@ -55,7 +70,7 @@ function handleValidation() {
             { name: "Rêverie", start: 903, end: 908},
             { name: "Pays des Wa", start: 909, end: 1057},
             { name: "Île d'Egg Head", start: 1058, end: 1125},
-            { name: "Erbaf", start: 1126, end: 1148}
+            { name: "Erbaf", start: 1126, end: totalChapters}
         ]
     };
 
@@ -114,6 +129,10 @@ function handleValidation() {
 // Restaurer les données sauvegardées au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     const savedChaptersRead = localStorage.getItem('chaptersRead');
+    const savedTotalChapters = localStorage.getItem('totalChapters');
+    if (savedTotalChapters) {
+        localStorage.setItem('totalChapters', savedTotalChapters);
+    }
     if (savedChaptersRead) {
         document.getElementById('chapters-read').value = savedChaptersRead;
         handleValidation(); // Appel de la fonction pour afficher les résultats
